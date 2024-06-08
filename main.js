@@ -23,7 +23,7 @@ async function fetchWeather(){
 function translateWeather(number){
     switch (number) {
         case 0:
-            document.getElementById("picture").src = 'sunny.png'
+            document.getElementById("picture").src = 'sun.png'
             //return("Clear Sky")
             break;
         case 1:
