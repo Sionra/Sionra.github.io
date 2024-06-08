@@ -14,98 +14,114 @@ async function fetchWeather(){
     console.log(`Temperature : ` + data.current.temperature_2m)
     console.log(`Humidity : ` + data.current.relative_humidity_2m)
     console.log(`Weather : ` + translateWeather(data.current.weather_code))
-    document.getElementById("weather").innerHTML = translateWeather(data.current.weather_code)
+    //document.getElementById("weather").innerHTML = translateWeather(data.current.weather_code)
     document.getElementById("temp").innerHTML = (data.current.temperature_2m)
     document.getElementById("hum").innerHTML = (data.current.relative_humidity_2m)
-    document.getElementById("Date").innerHTML = date.toLocaleString('en-US', {weekday: 'long'}) + " " + date.getDate() + " " + date.toLocaleString('en-US', {month: 'long'}); 
+    document.getElementById("Date").innerHTML = date.toLocaleString('en-US', {weekday: 'long'}) + " " + date.getDate() + " " + date.toLocaleString('en-US', {month: 'long'});
 }
 
 function translateWeather(number){
     switch (number) {
         case 0:
-            return("Clear Sky")
+            document.getElementById("picture").src = 'sunny.png'
+            //return("Clear Sky")
             break;
         case 1:
-            return("Mainly Clear")
+            document.getElementById("picture").src = 'overcast.png'
+            //return("Mainly Clear")
             break;
         case 2:
-            return("Partly cloudy")
+            document.getElementById("picture").src = 'overcast.png'
+            //return("Partly cloudy")
             break;
         case 3:
-            return("Partly cloudy")
+            document.getElementById("picture").src = 'overcast.png'
+            //return("Partly cloudy")
             break;
         case 45:
-            return("Fog")
+            document.getElementById("picture").src = 'fog.png'
+            //return("Fog")
             break;
         case 48:
-            return("rime fog")
+            document.getElementById("picture").src = 'fog.png'
+            //return("rime fog")
             break;
         case 51:
-            return("Drizzle Light")
+            //return("Drizzle Light")
             break;
         case 53:
-            return("Drizzle Moderate")
+            //return("Drizzle Moderate")
             break;
         case 55:
-            return("Drizzle Dense")
+            //return("Drizzle Dense")
             break;
         case 56:
-            return("Freezing Drizzle Light")
+            //return("Freezing Drizzle Light")
             break;
         case 57:
-            return("Freezing Drizzle Dense")
+            //return("Freezing Drizzle Dense")
             break;
         case 61:
-            return("Rain Slight")
+            document.getElementById("picture").src = 'rain.png'
+            //return("Rain Slight")
             break;
         case 63:
-            return("Rain Moderate")
+            document.getElementById("picture").src = 'rain.png'
+            //return("Rain Moderate")
             break;
         case 65:
-            return("Rain Heavy")
+            document.getElementById("picture").src = 'rain.png'
+            //return("Rain Heavy")
             break;
         case 66:
-            return("Freezing Rain Light")
+            document.getElementById("picture").src = 'freezing-rain.png'
+            //return("Freezing Rain Light")
             break;
         case 67:
-            return("Freezing Rain Heavy")
+            document.getElementById("picture").src = 'freezing-rain.png'
+            //return("Freezing Rain Heavy")
             break;
         case 71:
-            return("Snow Fall Slight")
+            document.getElementById("picture").src = 'snow.png'
+            //return("Snow Fall Slight")
             break;
         case 73:
-            return("Snow Fall Moderate")
+            document.getElementById("picture").src = 'snow.png'
+            //return("Snow Fall Moderate")
             break;
         case 75:
-            return("Snow Fall heavy")
+            document.getElementById("picture").src = 'snow.png'
+            //return("Snow Fall heavy")
             break;
         case 77:
-            return("Snow Grains")
+            //return("Snow Grains")
             break;
         case 80:
-            return("Rain Shower Light")
+            //return("Rain Shower Light")
             break;
         case 81:
-            return("Rain Shower Medium")
+            //return("Rain Shower Medium")
             break;
         case 82:
-            
-        return("Rain Shower Heavy")
+            //return("Rain Shower Heavy")
             break;
         case 85:
-            return("Snow Shower Slight")
+            //return("Snow Shower Slight")
             break;
         case 86:
-            return("Snow Shower Heavy")
+            //return("Snow Shower Heavy")
             break;
         case 95:
-            return("ThunderStorm Slight or moderate")
+            document.getElementById("picture").src = 'thunderstorm.png'
+            //return("ThunderStorm Slight or moderate")
             break;
         case 96:
-            return("ThunderStorm with slight hail")
+            document.getElementById("picture").src = 'thunderstorm.png'
+            //return("ThunderStorm with slight hail")
             break;
         case 99:
-            return("ThunderStorm with heavily hail")
+            document.getElementById("picture").src = 'thunderstorm.png'
+            //return("ThunderStorm with heavily hail")
             break;
     }
 }

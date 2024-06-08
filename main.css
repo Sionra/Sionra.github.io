@@ -14,9 +14,23 @@ p{
 table {
     border: 2px solid rgb(140 140 140);
   }
+    
+#picture{
+    width: 100px;
+}
+
+#tdtemp{
+    padding-left: 15px;
+}
+
 #temp{
     font-size: 32px;
 }
 #picture{
     font-size: 64px;
+}
+
+#linfo{
+    font-size: 14px;
+    color: #9e9e9e !important;
 }
