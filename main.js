@@ -1,5 +1,6 @@
 async function fetchWeather(){
     let location = new Request("https://ipapi.co/json/");
+    let date = new Date();
 
     let rloc = await fetch(location);
     let ldata = await rloc.json();
@@ -16,6 +17,7 @@ async function fetchWeather(){
     document.getElementById("weather").innerHTML = translateWeather(data.current.weather_code)
     document.getElementById("temp").innerHTML = (data.current.temperature_2m)
     document.getElementById("hum").innerHTML = (data.current.relative_humidity_2m)
+    document.getElementById("Date").innerHTML = date.toLocaleString('en-US', {weekday: 'long'}) + " " + date.getDate() + " " + date.toLocaleString('en-US', {month: 'long'}); 
 }
 
 function translateWeather(number){
