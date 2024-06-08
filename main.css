@@ -1,0 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+html{
+    font-family: 'Roboto';
+}
+
+body{
+    background-color: rgb(31, 31, 31);
+}
+
+p{
+    color: white
+}
+table {
+    border: 2px solid rgb(140 140 140);
+  }
+#temp{
+    font-size: 32px;
+}
+#picture{
+    font-size: 64px;
+}
