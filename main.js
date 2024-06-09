@@ -5,18 +5,21 @@ async function fetchWeather(){
     let rloc = await fetch(location);
     let ldata = await rloc.json();
     
-    //let request = new Request("https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m,relative_humidity_2m,weather_code&timezone=Europe%2FLondon&forecast_days=1")
-    let request = new Request("https://api.open-meteo.com/v1/forecast?latitude="+ldata.latitude+"&longitude="+ldata.longitude+"&current=temperature_2m,relative_humidity_2m,weather_code&timezone=Europe%2FLondon&forecast_days=1")
+    //let request = new Request("https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=1")
+    let request = new Request("https://api.open-meteo.com/v1/forecast?latitude="+ldata.latitude+"&longitude="+ldata.longitude+"&current=temperature_2m,relative_humidity_2m,precipitation_probability,weather_code,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=1)
     let response = await fetch(request)
     let data = await response.json();
 
     console.log(data)
     console.log(`Temperature : ` + data.current.temperature_2m)
     console.log(`Humidity : ` + data.current.relative_humidity_2m)
-    console.log(`Weather : ` + translateWeather(data.current.weather_code))
+    //console.log(`Weather : ` + translateWeather(data.current.weather_code))
+    translateWeather(data.current.weather_code)
     //document.getElementById("weather").innerHTML = translateWeather(data.current.weather_code)
     document.getElementById("temp").innerHTML = (data.current.temperature_2m)
+    document.getElementById("precipitation").innerHTML = (data.current.precipitation_probability)
     document.getElementById("hum").innerHTML = (data.current.relative_humidity_2m)
+    document.getElementById("windspeed").innerHTML = (data.current.wind_speed_10m)
     document.getElementById("Date").innerHTML = date.toLocaleString('en-US', {weekday: 'long'}) + " " + date.getDate() + " " + date.toLocaleString('en-US', {month: 'long'});
 }
 
