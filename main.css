@@ -37,3 +37,16 @@ p{
     margin-top: 1px;
     color: #9e9e9e !important;
 }
+
+#season{
+    width: 50px;
+    padding-left: 235px;
+}
+
+#Date{
+    padding-left: 200px;
+}
+
+#celcius{
+    margin-top: 5px;
+}

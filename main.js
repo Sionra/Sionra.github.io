@@ -21,32 +21,46 @@ async function fetchWeather(){
     document.getElementById("hum").innerHTML = (data.current.relative_humidity_2m)
     document.getElementById("windspeed").innerHTML = (data.current.wind_speed_10m)
     document.getElementById("Date").innerHTML = date.toLocaleString('en-US', {weekday: 'long'}) + " " + date.getDate() + " " + date.toLocaleString('en-US', {month: 'long'});
+    setSeason(date)
+}
+
+function setSeason(date){
+    console.log(date.getMonth())
+    if(date.getMonth() === 12 || date.getMonth() < 3){
+        document.getElementById("season").src = 'imgs/weather-icons/winter.png'
+    } else if ( date.getMonth() >= 3 && date.getMonth() < 6) {
+        document.getElementById("season").src = 'imgs/weather-icons/spring.png'
+    } else if (date.getMonth() >= 6 && date.getMonth() < 9){
+        document.getElementById("season").src = 'imgs/weather-icons/summer.png'
+    } else {
+        document.getElementById("season").src = 'imgs/weather-icons/autumn.png'
+    }
 }
 
 function translateWeather(number){
     switch (number) {
         case 0:
-            document.getElementById("picture").src = 'sun.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/sun.png'
             //return("Clear Sky")
             break;
         case 1:
-            document.getElementById("picture").src = 'overcast.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/overcast.png'
             //return("Mainly Clear")
             break;
         case 2:
-            document.getElementById("picture").src = 'overcast.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/overcast.png'
             //return("Partly cloudy")
             break;
         case 3:
-            document.getElementById("picture").src = 'overcast.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/overcast.png'
             //return("Partly cloudy")
             break;
         case 45:
-            document.getElementById("picture").src = 'fog.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/fog.png'
             //return("Fog")
             break;
         case 48:
-            document.getElementById("picture").src = 'fog.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/fog.png'
             //return("rime fog")
             break;
         case 51:
@@ -65,35 +79,35 @@ function translateWeather(number){
             //return("Freezing Drizzle Dense")
             break;
         case 61:
-            document.getElementById("picture").src = 'rain.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/rain.png'
             //return("Rain Slight")
             break;
         case 63:
-            document.getElementById("picture").src = 'rain.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/rain.png'
             //return("Rain Moderate")
             break;
         case 65:
-            document.getElementById("picture").src = 'rain.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/rain.png'
             //return("Rain Heavy")
             break;
         case 66:
-            document.getElementById("picture").src = 'freezing-rain.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/freezing-rain.png'
             //return("Freezing Rain Light")
             break;
         case 67:
-            document.getElementById("picture").src = 'freezing-rain.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/freezing-rain.png'
             //return("Freezing Rain Heavy")
             break;
         case 71:
-            document.getElementById("picture").src = 'snow.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/snow.png'
             //return("Snow Fall Slight")
             break;
         case 73:
-            document.getElementById("picture").src = 'snow.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/snow.png'
             //return("Snow Fall Moderate")
             break;
         case 75:
-            document.getElementById("picture").src = 'snow.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/snow.png'
             //return("Snow Fall heavy")
             break;
         case 77:
@@ -115,15 +129,15 @@ function translateWeather(number){
             //return("Snow Shower Heavy")
             break;
         case 95:
-            document.getElementById("picture").src = 'thunderstorm.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/thunderstorm.png'
             //return("ThunderStorm Slight or moderate")
             break;
         case 96:
-            document.getElementById("picture").src = 'thunderstorm.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/thunderstorm.png'
             //return("ThunderStorm with slight hail")
             break;
         case 99:
-            document.getElementById("picture").src = 'thunderstorm.png'
+            document.getElementById("picture").src = 'imgs/weather-icons/thunderstorm.png'
             //return("ThunderStorm with heavily hail")
             break;
     }
