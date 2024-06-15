@@ -1,15 +1,18 @@
+let unit;
+let data;
+
 async function fetchWeather(){
     let location = new Request("https://ipapi.co/json/");
     let rloc = await fetch(location);
     let ldata = await rloc.json();
 
     let date = new Date();
-    let unit = 'C'
+    unit = 'C'
     
     //let request = new Request("https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=1")
     let request = new Request("https://api.open-meteo.com/v1/forecast?latitude="+ldata.latitude+"&longitude="+ldata.longitude+"&current=temperature_2m,relative_humidity_2m,precipitation_probability,weather_code,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=1")
     let response = await fetch(request)
-    let data = await response.json();
+    data = await response.json();
 
     console.log(data)
     console.log(`Temperature : ` + data.current.temperature_2m)
