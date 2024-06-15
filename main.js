@@ -33,11 +33,11 @@ function changeUnit(newUnit){
         //put in deselected
     }*/
    if (newUnit == 'C'){
-        document.getElementById('temp').innerHTML = data.temperature_2m
+        document.getElementById('temp').innerHTML = data.current.temperature_2m
         unit = 'C'
    }
    if (newUnit == 'F'){
-        document.getElementById('temp').innerHTML = (data.temperature_2m * 9/5) + 32
+        document.getElementById('temp').innerHTML = (data.current.temperature_2m * 9/5) + 32
         unit = 'F'
    }
 }
