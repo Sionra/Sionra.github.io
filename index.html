@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <script src="main.js"></script>
@@ -17,7 +17,7 @@
                 <p><span id="temp">Undefined</span></p>
             </td>
             <td>
-                <p id="celcius">°C</p>
+                <p> <span id="C" onclick="changeUnit(C)">°C</span>|<span id='F' onclick="changeUnit('F')">°F</span></p>
             </td>
             <td id="linfo">
                 <p id="ltextinfo">Precipitation : <span id="precipitation">N/A</span>%</p>

@@ -1,9 +1,10 @@
 async function fetchWeather(){
     let location = new Request("https://ipapi.co/json/");
-    let date = new Date();
-
     let rloc = await fetch(location);
     let ldata = await rloc.json();
+
+    let date = new Date();
+    let unit = 'C'
     
     //let request = new Request("https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=1")
     let request = new Request("https://api.open-meteo.com/v1/forecast?latitude="+ldata.latitude+"&longitude="+ldata.longitude+"&current=temperature_2m,relative_humidity_2m,precipitation_probability,weather_code,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=1")
@@ -22,6 +23,20 @@ async function fetchWeather(){
     document.getElementById("windspeed").innerHTML = (data.current.wind_speed_10m)
     document.getElementById("Date").innerHTML = date.toLocaleString('en-US', {weekday: 'long'}) + " " + date.getDate() + " " + date.toLocaleString('en-US', {month: 'long'});
     setSeason(date)
+}
+
+function changeUnit(newUnit){
+    /*for (let id of ['C', 'F']){
+        //put in deselected
+    }*/
+   if (newUnit == 'C'){
+        document.getElementById('temp').innerHTML = data.temperature_2m
+        unit = 'C'
+   }
+   if (newUnit == 'F'){
+        document.getElementById('temp').innerHTML = (data.temperature_2m * 9/5) + 32
+        unit = 'F'
+   }
 }
 
 function setSeason(date){
