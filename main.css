@@ -47,6 +47,11 @@ p{
     padding-left: 200px;
 }
 
-#C{
+#C, #F{
     margin-top: 5px;
+}
+
+.unotsel{
+    cursor: pointer;
+    color: #9e9e9e;
 }

@@ -34,10 +34,14 @@ function changeUnit(newUnit){
     }*/
    if (newUnit == 'C'){
         document.getElementById('temp').innerHTML = data.current.temperature_2m
+        document.getElementById('F').classList.add('unotsel')
+        document.getElementById('C').classList.remove('unotsel')
         unit = 'C'
    }
    if (newUnit == 'F'){
         document.getElementById('temp').innerHTML = (data.current.temperature_2m * 9/5) + 32
+        document.getElementById('C').classList.add('unotsel')
+        document.getElementById('F').classList.remove('unotsel')
         unit = 'F'
    }
 }
