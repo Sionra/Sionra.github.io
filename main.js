@@ -39,7 +39,8 @@ function changeUnit(newUnit){
         unit = 'C'
    }
    if (newUnit == 'F'){
-        document.getElementById('temp').innerHTML = (data.current.temperature_2m * 9/5) + 32
+        let fCalc = (data.current.temperature_2m * 9/5) + 32
+        document.getElementById('temp').innerHTML = fCalc.toFixed(1)
         document.getElementById('C').classList.add('unotsel')
         document.getElementById('F').classList.remove('unotsel')
         unit = 'F'
