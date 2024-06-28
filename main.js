@@ -10,7 +10,8 @@ async function fetchWeather(){
     unit = 'C'
     
     //let request = new Request("https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=1")
-    let request = new Request("https://api.open-meteo.com/v1/forecast?latitude="+ldata.latitude+"&longitude="+ldata.longitude+"&current=temperature_2m,relative_humidity_2m,precipitation_probability,weather_code,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=1")
+    //let request = new Request("https://api.open-meteo.com/v1/forecast?latitude="+ldata.latitude+"&longitude="+ldata.longitude+"&current=temperature_2m,relative_humidity_2m,precipitation_probability,weather_code,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=1")
+    let request = new Request("https://api.open-meteo.com/v1/forecast?latitude="+ldata.latitude+"&longitude="+ldata.longitude+"&current=temperature_2m,relative_humidity_2m,precipitation_probability,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min")
     let response = await fetch(request)
     data = await response.json();
 
@@ -22,10 +23,37 @@ async function fetchWeather(){
     //document.getElementById("weather").innerHTML = translateWeather(data.current.weather_code)
     document.getElementById("temp").innerHTML = (data.current.temperature_2m)
     document.getElementById("precipitation").innerHTML = (data.current.precipitation_probability)
-    document.getElementById("hum").innerHTML = (data.current.relative_humidity_2m)
+    document.getElementById("hum").innerHTML = (data.current.relative_humidity_2m)  
     document.getElementById("windspeed").innerHTML = (data.current.wind_speed_10m)
     document.getElementById("Date").innerHTML = date.toLocaleString('en-US', {weekday: 'long'}) + " " + date.getDate() + " " + date.toLocaleString('en-US', {month: 'long'});
     setSeason(date)
+    forecast(data);
+}
+
+/*function forecast(data){
+    let newtr = document.createElement("tr");
+    for (let i = 0; i < data.daily.temperature_2m_max.length; i++){
+        let newtd = document.createElement("td");
+        let date = new Date(data.daily.time[i]).toLocaleString('en-US', {weekday: 'short'})
+        let nodedate = document.createTextNode(date)
+        newtd.appendChild(document.createElement("p").appendChild(nodedate))
+
+        newtr.appendChild(newtd);
+    }
+    document.body.insert(document.getElementById("mainDate"), newtr)
+}
+    */
+function forecast(data){
+    let forecastTable = document.createElement('table');
+    let newRow = forecastTable.insertRow(-1);
+    for (let i = 0; i < data.daily.temperature_2m_max.length; i++){
+        let newCell = newRow.insertCell(i);
+        let date = new Date(data.daily.time[i]).toLocaleString('en-US', {weekday: 'short'});
+        let nodeDate = document.createTextNode(date);
+        newCell.appendChild(nodeDate);  
+    }
+
+    document.body.appendChild(forecastTable)
 }
 
 function changeUnit(newUnit){
