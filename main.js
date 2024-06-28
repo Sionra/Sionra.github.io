@@ -127,18 +127,23 @@ function translateWeather(number){
             //return("rime fog")
             break;
         case 51:
+            return 'imgs/weather-icons/drizzle.png'
             //return("Drizzle Light")
             break;
         case 53:
+            return 'imgs/weather-icons/drizzle.png'
             //return("Drizzle Moderate")
             break;
         case 55:
+            return 'imgs/weather-icons/drizzle.png'
             //return("Drizzle Dense")
             break;
         case 56:
+            return 'imgs/weather-icons/freezing-rain.png'
             //return("Freezing Drizzle Light")
             break;
         case 57:
+            return 'imgs/weather-icons/freezing-rain.png'
             //return("Freezing Drizzle Dense")
             break;
         case 61:
@@ -174,22 +179,27 @@ function translateWeather(number){
             //return("Snow Fall heavy")
             break;
         case 77:
+            return 'imgs/weather-icons/snow.png'
             //return("Snow Grains")
             break;
         case 80:
-            return 'imgs/weather-icons/light-rain.png'
+            return 'imgs/weather-icons/rain-shower.png'
             //return("Rain Shower Light")
             break;
         case 81:
+            return 'imgs/weather-icons/rain-shower.png'
             //return("Rain Shower Medium")
             break;
         case 82:
+            return 'imgs/weather-icons/rain-shower.png'
             //return("Rain Shower Heavy")
             break;
         case 85:
+            return 'imgs/weather-icons/snow.png'
             //return("Snow Shower Slight")
             break;
         case 86:
+            return 'imgs/weather-icons/snow.png'
             //return("Snow Shower Heavy")
             break;
         case 95:
