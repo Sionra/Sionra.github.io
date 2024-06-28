@@ -19,14 +19,14 @@ async function fetchWeather(){
     console.log(`Temperature : ` + data.current.temperature_2m)
     console.log(`Humidity : ` + data.current.relative_humidity_2m)
     //console.log(`Weather : ` + translateWeather(data.current.weather_code))
-    translateWeather(data.current.weather_code)
+    document.getElementById("picture").src = translateWeather(data.current.weather_code)
     //document.getElementById("weather").innerHTML = translateWeather(data.current.weather_code)
     document.getElementById("temp").innerHTML = (data.current.temperature_2m)
     document.getElementById("precipitation").innerHTML = (data.current.precipitation_probability)
     document.getElementById("hum").innerHTML = (data.current.relative_humidity_2m)  
     document.getElementById("windspeed").innerHTML = (data.current.wind_speed_10m)
     document.getElementById("Date").innerHTML = date.toLocaleString('en-US', {weekday: 'long'}) + " " + date.getDate() + " " + date.toLocaleString('en-US', {month: 'long'});
-    setSeason(date)
+    setSeason(date);
     forecast(data);
 }
 
@@ -47,10 +47,22 @@ function forecast(data){
     let forecastTable = document.createElement('table');
     let newRow = forecastTable.insertRow(-1);
     for (let i = 0; i < data.daily.temperature_2m_max.length; i++){
+        //date
         let newCell = newRow.insertCell(i);
         let date = new Date(data.daily.time[i]).toLocaleString('en-US', {weekday: 'short'});
+        let mybr = document.createElement('br');
         let nodeDate = document.createTextNode(date);
-        newCell.appendChild(nodeDate);  
+        let pic = document.createElement("img");
+        pic.src = translateWeather(data.daily.weather_code[i]);
+        pic.classList.add('weatherIcon');
+        //weather
+        
+
+        //let's add everything
+        newCell.appendChild(nodeDate);
+        newCell.appendChild(mybr);
+        newCell.appendChild(pic);
+
     }
 
     document.body.appendChild(forecastTable)
@@ -91,27 +103,27 @@ function setSeason(date){
 function translateWeather(number){
     switch (number) {
         case 0:
-            document.getElementById("picture").src = 'imgs/weather-icons/sun.png'
+            return 'imgs/weather-icons/sun.png'
             //return("Clear Sky")
             break;
         case 1:
-            document.getElementById("picture").src = 'imgs/weather-icons/overcast.png'
+            return 'imgs/weather-icons/overcast.png'
             //return("Mainly Clear")
             break;
         case 2:
-            document.getElementById("picture").src = 'imgs/weather-icons/overcast.png'
+            return 'imgs/weather-icons/overcast.png'
             //return("Partly cloudy")
             break;
         case 3:
-            document.getElementById("picture").src = 'imgs/weather-icons/overcast.png'
+            return 'imgs/weather-icons/overcast.png'
             //return("Partly cloudy")
             break;
         case 45:
-            document.getElementById("picture").src = 'imgs/weather-icons/fog.png'
+            return 'imgs/weather-icons/fog.png'
             //return("Fog")
             break;
         case 48:
-            document.getElementById("picture").src = 'imgs/weather-icons/fog.png'
+            return 'imgs/weather-icons/fog.png'
             //return("rime fog")
             break;
         case 51:
@@ -130,41 +142,42 @@ function translateWeather(number){
             //return("Freezing Drizzle Dense")
             break;
         case 61:
-            document.getElementById("picture").src = 'imgs/weather-icons/rain.png'
+            return 'imgs/weather-icons/rain.png'
             //return("Rain Slight")
             break;
         case 63:
-            document.getElementById("picture").src = 'imgs/weather-icons/rain.png'
+            return 'imgs/weather-icons/rain.png'
             //return("Rain Moderate")
             break;
         case 65:
-            document.getElementById("picture").src = 'imgs/weather-icons/rain.png'
+            return 'imgs/weather-icons/rain.png'
             //return("Rain Heavy")
             break;
         case 66:
-            document.getElementById("picture").src = 'imgs/weather-icons/freezing-rain.png'
+            return 'imgs/weather-icons/freezing-rain.png'
             //return("Freezing Rain Light")
             break;
         case 67:
-            document.getElementById("picture").src = 'imgs/weather-icons/freezing-rain.png'
+            return 'imgs/weather-icons/freezing-rain.png'
             //return("Freezing Rain Heavy")
             break;
         case 71:
-            document.getElementById("picture").src = 'imgs/weather-icons/snow.png'
+            return 'imgs/weather-icons/snow.png'
             //return("Snow Fall Slight")
             break;
         case 73:
-            document.getElementById("picture").src = 'imgs/weather-icons/snow.png'
+            return 'imgs/weather-icons/snow.png'
             //return("Snow Fall Moderate")
             break;
         case 75:
-            document.getElementById("picture").src = 'imgs/weather-icons/snow.png'
+            return 'imgs/weather-icons/snow.png'
             //return("Snow Fall heavy")
             break;
         case 77:
             //return("Snow Grains")
             break;
         case 80:
+            return 'imgs/weather-icons/light-rain.png'
             //return("Rain Shower Light")
             break;
         case 81:
@@ -180,15 +193,15 @@ function translateWeather(number){
             //return("Snow Shower Heavy")
             break;
         case 95:
-            document.getElementById("picture").src = 'imgs/weather-icons/thunderstorm.png'
+            return 'imgs/weather-icons/thunderstorm.png'
             //return("ThunderStorm Slight or moderate")
             break;
         case 96:
-            document.getElementById("picture").src = 'imgs/weather-icons/thunderstorm.png'
+            return 'imgs/weather-icons/thunderstorm.png'
             //return("ThunderStorm with slight hail")
             break;
         case 99:
-            document.getElementById("picture").src = 'imgs/weather-icons/thunderstorm.png'
+            return 'imgs/weather-icons/thunderstorm.png'
             //return("ThunderStorm with heavily hail")
             break;
     }

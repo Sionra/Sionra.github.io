@@ -13,6 +13,10 @@ p{
 }
     
 #picture{
+    font-size: 64px;
+}
+
+.weatherIcon{
     width: 100px;
 }
 
@@ -22,9 +26,6 @@ p{
 
 #temp{
     font-size: 32px;
-}
-#picture{
-    font-size: 64px;
 }
 
 #linfo{
