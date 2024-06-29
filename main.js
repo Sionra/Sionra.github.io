@@ -91,7 +91,7 @@ function changeUnit(newUnit){
 
    for ( let i = 0; i < data.daily.temperature_2m_min.length; i++){
     if ( unit === 'F'){
-        tempList[i].innerText = ((data.daily.temperature_2m_min[i] * 9/5) + 32).toFixed(1) + ' - ' + ((data.daily.temperature_2m_max[i] * 9/5) + 32);
+        tempList[i].innerText = ((data.daily.temperature_2m_min[i] * 9/5) + 32).toFixed(1) + ' - ' + ((data.daily.temperature_2m_max[i] * 9/5) + 32).toFixed(1);
     } else {
         tempList[i].innerText = data.daily.temperature_2m_min[i] + ' - ' + data.daily.temperature_2m_max[i]
     }
