@@ -50,40 +50,51 @@ function forecast(data){
         //date
         let newCell = newRow.insertCell(i);
         let date = new Date(data.daily.time[i]).toLocaleString('en-US', {weekday: 'short'});
-        let mybr = document.createElement('br');
-        let nodeDate = document.createTextNode(date);
+        let dateTxt = document.createElement('p');
+        dateTxt.innerText = date
         let pic = document.createElement("img");
         pic.src = translateWeather(data.daily.weather_code[i]);
         pic.classList.add('weatherIcon');
         //weather
         
+        let temp = document.createElement('p');
+        temp.classList.add('temp');
+        temp.innerText = data.daily.temperature_2m_min[i] + ' - ' + data.daily.temperature_2m_max[i];
 
         //let's add everything
-        newCell.appendChild(nodeDate);
-        newCell.appendChild(mybr);
+        newCell.appendChild(dateTxt);
         newCell.appendChild(pic);
-
+        newCell.appendChild(temp)
     }
 
     document.body.appendChild(forecastTable)
 }
 
 function changeUnit(newUnit){
+    let tempList = document.getElementsByClassName('temp');
     /*for (let id of ['C', 'F']){
         //put in deselected
     }*/
    if (newUnit == 'C'){
-        document.getElementById('temp').innerHTML = data.current.temperature_2m
-        document.getElementById('F').classList.add('unotsel')
-        document.getElementById('C').classList.remove('unotsel')
-        unit = 'C'
+        document.getElementById('temp').innerHTML = data.current.temperature_2m;
+        document.getElementById('F').classList.add('unotsel');
+        document.getElementById('C').classList.remove('unotsel');
+        unit = 'C';
    }
    if (newUnit == 'F'){
-        let fCalc = (data.current.temperature_2m * 9/5) + 32
-        document.getElementById('temp').innerHTML = fCalc.toFixed(1)
-        document.getElementById('C').classList.add('unotsel')
-        document.getElementById('F').classList.remove('unotsel')
-        unit = 'F'
+        let fCalc = (data.current.temperature_2m * 9/5) + 32;
+        document.getElementById('temp').innerHTML = fCalc.toFixed(1);
+        document.getElementById('C').classList.add('unotsel');
+        document.getElementById('F').classList.remove('unotsel');
+        unit = 'F';
+   }
+
+   for ( let i = 0; i < data.daily.temperature_2m_min.length; i++){
+    if ( unit === 'F'){
+        tempList[i].innerText = ((data.daily.temperature_2m_min[i] * 9/5) + 32).toFixed(1) + ' - ' + ((data.daily.temperature_2m_max[i] * 9/5) + 32);
+    } else {
+        tempList[i].innerText = data.daily.temperature_2m_min[i] + ' - ' + data.daily.temperature_2m_max[i]
+    }
    }
 }
 
