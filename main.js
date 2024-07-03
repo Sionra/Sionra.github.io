@@ -52,6 +52,7 @@ function forecast(data){
         let date = new Date(data.daily.time[i]).toLocaleString('en-US', {weekday: 'short'});
         let dateTxt = document.createElement('p');
         dateTxt.innerText = date
+        dateTxt.classList.add('dayshort');
         let pic = document.createElement("img");
         pic.src = translateWeather(data.daily.weather_code[i]);
         pic.classList.add('weatherIcon');
@@ -59,6 +60,7 @@ function forecast(data){
         
         let temp = document.createElement('p');
         temp.classList.add('temp');
+        temp.classList.add('dayshort');
         temp.innerText = data.daily.temperature_2m_min[i] + ' - ' + data.daily.temperature_2m_max[i];
 
         //let's add everything
