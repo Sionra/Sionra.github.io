@@ -49,7 +49,7 @@ function forecast(data){
     for (let i = 0; i < data.daily.temperature_2m_max.length; i++){
         //date
         let newCell = newRow.insertCell(i);
-        let date = new Date(data.daily.time[i]).toLocaleString('en-US', {weekday: 'short'});
+        let date = new Date(data.daily.time[i] + "T00:00").toLocaleString('en-US', {weekday: 'short'});
         let dateTxt = document.createElement('p');
         dateTxt.innerText = date
         dateTxt.classList.add('dayshort');
