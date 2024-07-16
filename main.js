@@ -2,7 +2,7 @@ let unit;
 let data;
 
 async function fetchWeather(){
-    let location = new Request("https://ipapi.co/json/");
+    const location = new Request("https://ipapi.co/json/");
     let rloc = await fetch(location);
     let ldata = await rloc.json();
 
@@ -11,7 +11,7 @@ async function fetchWeather(){
     
     //let request = new Request("https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=1")
     //let request = new Request("https://api.open-meteo.com/v1/forecast?latitude="+ldata.latitude+"&longitude="+ldata.longitude+"&current=temperature_2m,relative_humidity_2m,precipitation_probability,weather_code,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=1")
-    let request = new Request("https://api.open-meteo.com/v1/forecast?latitude="+ldata.latitude+"&longitude="+ldata.longitude+"&current=temperature_2m,relative_humidity_2m,precipitation_probability,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min")
+    const request = new Request("https://api.open-meteo.com/v1/forecast?latitude="+ldata.latitude+"&longitude="+ldata.longitude+"&current=temperature_2m,relative_humidity_2m,precipitation_probability,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min")
     let response = await fetch(request)
     data = await response.json();
 
@@ -69,7 +69,9 @@ function forecast(data){
         newCell.appendChild(temp)
     }
 
-    document.body.appendChild(forecastTable)
+    //document.body.appendChild(forecastTable)
+    let patate = document.getElementsByClassName("middle")
+    patate[0].appendChild(forecastTable);
 }
 
 function changeUnit(newUnit){

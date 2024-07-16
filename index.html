@@ -8,28 +8,30 @@
 </head>
 <script src="main.js"></script>
 <body>
-    <table id="weatherTable">
-        <tr>
-            <td>
-                <img id="picture" class="weatherIcon" src=""></img>
-            </td>
-            <td id=" tdtemp">
-                <p><span id="temp">Undefined</span></p>
-            </td>
-            <td>
-                <p> <span id="C" onclick="changeUnit('C')">°C</span> | <span id='F' class="unotsel" onclick="changeUnit('F')">°F</span></p>
-            </td>
-            <td id="linfo">
-                <p id="ltextinfo">Precipitation : <span id="precipitation">N/A</span>%</p>
-                <p id="ltextinfo">Humidity : <span id="hum">N/A</span>%</p>
-                <p id="ltextinfo">Wind : <span id="windspeed">N/A</span> Km/h</p>
-            </td>
-            <td>
-                <p id="Date">Undefined</p>
-                <img id="season">
-            </td>
-        </tr>
-    </table>
+    <div class="middle">
+        <table id="weatherTable">
+            <tr>
+                <td>
+                    <img id="picture" class="weatherIcon" src=""></img>
+                </td>
+                <td id=" tdtemp">
+                    <p><span id="temp">Undefined</span></p>
+                </td>
+                <td>
+                    <p> <span id="C" onclick="changeUnit('C')">°C</span> | <span id='F' class="unotsel" onclick="changeUnit('F')">°F</span></p>
+                </td>
+                <td id="linfo">
+                    <p id="ltextinfo">Precipitation : <span id="precipitation">N/A</span>%</p>
+                    <p id="ltextinfo">Humidity : <span id="hum">N/A</span>%</p>
+                    <p id="ltextinfo">Wind : <span id="windspeed">N/A</span> Km/h</p>
+                </td>
+                <td>
+                    <p id="Date">Undefined</p>
+                    <img id="season">
+                </td>
+            </tr>
+        </table>
+    </div>
 
     
     <!--<p><span id="weather">Undefined</span></p>-->
