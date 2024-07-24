@@ -19,7 +19,7 @@ async function fetchWeather(){
     console.log(`Temperature : ` + data.current.temperature_2m)
     console.log(`Humidity : ` + data.current.relative_humidity_2m)
     //console.log(`Weather : ` + translateWeather(data.current.weather_code))
-    document.getElementById("picture").src = translateWeather(data.current.weather_code)
+    document.getElementById("picture").src = translateWeather(data.current.weather_code, 'p')
     //document.getElementById("weather").innerHTML = translateWeather(data.current.weather_code)
     document.getElementById("temp").innerHTML = (data.current.temperature_2m)
     document.getElementById("precipitation").innerHTML = (data.current.precipitation_probability)
@@ -53,11 +53,20 @@ function forecast(data){
         let dateTxt = document.createElement('p');
         dateTxt.innerText = date
         dateTxt.classList.add('dayshort');
+
+        //forecast weather icon
         let pic = document.createElement("img");
-        pic.src = translateWeather(data.daily.weather_code[i]);
+        pic.src = translateWeather(data.daily.weather_code[i], 'p');
         pic.classList.add('weatherIcon');
-        //weather
-        
+
+        //Weather name
+        let wname = document.createElement('p');
+        wname.classList.add('ltextinfo');
+        wname.classList.add('textforecast');
+        wname.innerText = translateWeather(data.daily.weather_code[i], 't');
+
+
+        //forecast temp text
         let temp = document.createElement('p');
         temp.classList.add('temp');
         temp.classList.add('dayshort');
@@ -66,6 +75,7 @@ function forecast(data){
         //let's add everything
         newCell.appendChild(dateTxt);
         newCell.appendChild(pic);
+        newCell.appendChild(wname)
         newCell.appendChild(temp)
     }
 
@@ -115,119 +125,175 @@ function setSeason(date){
     }
 }
 
-function translateWeather(number){
+function translateWeather(number, code){
     switch (number) {
         case 0:
-            return 'imgs/weather-icons/sun.png'
-            //return("Clear Sky")
+            if (code === 'p'){
+                return 'imgs/weather-icons/sun.png'
+            }
+            return("Clear Sky")
             break;
         case 1:
-            return 'imgs/weather-icons/overcast.png'
-            //return("Mainly Clear")
+            if (code === 'p'){
+                return 'imgs/weather-icons/overcast.png'
+            }
+            return("Mainly Clear")
             break;
         case 2:
-            return 'imgs/weather-icons/overcast.png'
-            //return("Partly cloudy")
+            if (code === 'p'){
+                return 'imgs/weather-icons/overcast.png'
+            }
+            return("Partly cloudy")
             break;
         case 3:
-            return 'imgs/weather-icons/overcast.png'
-            //return("Partly cloudy")
+            if (code === 'p'){
+                return 'imgs/weather-icons/overcast.png'
+            }
+            return("Partly cloudy")
             break;
         case 45:
-            return 'imgs/weather-icons/fog.png'
-            //return("Fog")
+            if (code === 'p'){
+                return 'imgs/weather-icons/fog.png'
+            }
+            return("Fog")
             break;
         case 48:
-            return 'imgs/weather-icons/fog.png'
-            //return("rime fog")
+            if (code === 'p'){
+                return 'imgs/weather-icons/fog.png'
+            }
+            return("rime fog")
             break;
         case 51:
-            return 'imgs/weather-icons/drizzle.png'
-            //return("Drizzle Light")
+            if (code === 'p'){
+                return 'imgs/weather-icons/drizzle.png'
+            }
+            return("Drizzle Light")
             break;
         case 53:
-            return 'imgs/weather-icons/drizzle.png'
-            //return("Drizzle Moderate")
+            if (code === 'p'){
+                return 'imgs/weather-icons/drizzle.png'
+            }
+            return("Drizzle Moderate")
             break;
         case 55:
-            return 'imgs/weather-icons/drizzle.png'
-            //return("Drizzle Dense")
+            if (code === 'p'){
+                return 'imgs/weather-icons/drizzle.png'
+            }
+            return("Drizzle Dense")
             break;
         case 56:
-            return 'imgs/weather-icons/freezing-rain.png'
-            //return("Freezing Drizzle Light")
+            if (code === 'p'){
+                return 'imgs/weather-icons/freezing-rain.png'
+            }
+            return("Freezing Drizzle Light")
             break;
         case 57:
-            return 'imgs/weather-icons/freezing-rain.png'
-            //return("Freezing Drizzle Dense")
+            if (code === 'p'){
+                return 'imgs/weather-icons/freezing-rain.png'
+            }
+            return("Freezing Drizzle Dense")
             break;
         case 61:
-            return 'imgs/weather-icons/rain.png'
-            //return("Rain Slight")
+            if (code === 'p'){
+                return 'imgs/weather-icons/rain.png'
+            }
+            return("Rain Slight")
             break;
         case 63:
-            return 'imgs/weather-icons/rain.png'
-            //return("Rain Moderate")
+            if (code === 'p'){
+                return 'imgs/weather-icons/rain.png'
+            }
+            return("Rain Moderate")
             break;
         case 65:
-            return 'imgs/weather-icons/rain.png'
-            //return("Rain Heavy")
+            if (code === 'p'){
+                return 'imgs/weather-icons/rain.png'
+            }
+            return("Rain Heavy")
             break;
         case 66:
-            return 'imgs/weather-icons/freezing-rain.png'
-            //return("Freezing Rain Light")
+            if (code === 'p'){
+                return 'imgs/weather-icons/freezing-rain.png'
+            }
+            return("Freezing Rain Light")
             break;
         case 67:
-            return 'imgs/weather-icons/freezing-rain.png'
-            //return("Freezing Rain Heavy")
+            if (code === 'p'){
+                return 'imgs/weather-icons/freezing-rain.png'
+            }
+            return("Freezing Rain Heavy")
             break;
         case 71:
-            return 'imgs/weather-icons/snow.png'
-            //return("Snow Fall Slight")
+            if (code === 'p'){
+                return 'imgs/weather-icons/snow.png'
+            }
+            return("Snow Fall Slight")
             break;
         case 73:
-            return 'imgs/weather-icons/snow.png'
-            //return("Snow Fall Moderate")
+            if (code === 'p'){
+                return 'imgs/weather-icons/snow.png'
+            }
+            return("Snow Fall Moderate")
             break;
         case 75:
-            return 'imgs/weather-icons/snow.png'
-            //return("Snow Fall heavy")
+            if (code === 'p'){
+                return 'imgs/weather-icons/snow.png'
+            }
+            return("Snow Fall heavy")
             break;
         case 77:
-            return 'imgs/weather-icons/snow.png'
-            //return("Snow Grains")
+            if (code === 'p'){
+                return 'imgs/weather-icons/snow.png'
+            }
+            return("Snow Grains")
             break;
         case 80:
-            return 'imgs/weather-icons/rain-shower.png'
-            //return("Rain Shower Light")
+            if (code === 'p'){
+                return 'imgs/weather-icons/rain-shower.png'
+            }
+            return("Rain Shower Light")
             break;
         case 81:
-            return 'imgs/weather-icons/rain-shower.png'
-            //return("Rain Shower Medium")
+            if (code === 'p'){
+                return 'imgs/weather-icons/rain-shower.png'
+            }
+            return("Rain Shower Medium")
             break;
         case 82:
-            return 'imgs/weather-icons/rain-shower.png'
-            //return("Rain Shower Heavy")
+            if (code === 'p'){
+                return 'imgs/weather-icons/rain-shower.png'
+            }
+            return("Rain Shower Heavy")
             break;
         case 85:
-            return 'imgs/weather-icons/snow.png'
-            //return("Snow Shower Slight")
+            if (code === 'p'){
+                return 'imgs/weather-icons/snow.png'
+            }
+            return("Snow Shower Slight")
             break;
         case 86:
-            return 'imgs/weather-icons/snow.png'
-            //return("Snow Shower Heavy")
+            if (code === 'p'){
+                return 'imgs/weather-icons/snow.png'
+            }
+            return("Snow Shower Heavy")
             break;
         case 95:
-            return 'imgs/weather-icons/thunderstorm.png'
-            //return("ThunderStorm Slight or moderate")
+            if (code === 'p'){
+                return 'imgs/weather-icons/thunderstorm.png'
+            }
+            return("ThunderStorm Slight or moderate")
             break;
         case 96:
-            return 'imgs/weather-icons/thunderstorm.png'
-            //return("ThunderStorm with slight hail")
+            if (code === 'p'){
+                return 'imgs/weather-icons/thunderstorm.png'
+            }
+            return("ThunderStorm with slight hail")
             break;
         case 99:
-            return 'imgs/weather-icons/thunderstorm.png'
-            //return("ThunderStorm with heavily hail")
+            if (code === 'p'){
+                return 'imgs/weather-icons/thunderstorm.png'
+            }
+            return("ThunderStorm with heavily hail")
             break;
     }
 }
