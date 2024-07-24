@@ -5,9 +5,16 @@ async function fetchWeather(){
     const location = new Request("https://ipapi.co/json/");
     let rloc = await fetch(location);
     let ldata = await rloc.json();
-
     let date = new Date();
-    unit = 'C'
+
+    if ( localStorage.getItem('tunit') == null){
+        if ( navigator.language == 'en-US'){
+            localStorage.setItem('tunit', 'F');
+        } else {
+            localStorage.setItem('tunit', 'C');
+        }
+    }
+    unit = localStorage.getItem('tunit');
     
     //let request = new Request("https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=1")
     //let request = new Request("https://api.open-meteo.com/v1/forecast?latitude="+ldata.latitude+"&longitude="+ldata.longitude+"&current=temperature_2m,relative_humidity_2m,precipitation_probability,weather_code,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=1")
@@ -21,7 +28,15 @@ async function fetchWeather(){
     //console.log(`Weather : ` + translateWeather(data.current.weather_code))
     document.getElementById("picture").src = translateWeather(data.current.weather_code, 'p')
     //document.getElementById("weather").innerHTML = translateWeather(data.current.weather_code)
-    document.getElementById("temp").innerHTML = (data.current.temperature_2m)
+
+    if ( unit == 'C'){
+        document.getElementById("temp").innerHTML = (data.current.temperature_2m)
+        document.getElementById('F').classList.add('unotsel');
+    } else if ( unit == 'F'){
+        document.getElementById("temp").innerHTML = ((data.current.temperature_2m * 9/5) + 32).toFixed(1);
+        document.getElementById('C').classList.add('unotsel');
+    }
+
     document.getElementById("precipitation").innerHTML = (data.current.precipitation_probability)
     document.getElementById("hum").innerHTML = (data.current.relative_humidity_2m)  
     document.getElementById("windspeed").innerHTML = (data.current.wind_speed_10m)
@@ -70,7 +85,15 @@ function forecast(data){
         let temp = document.createElement('p');
         temp.classList.add('temp');
         temp.classList.add('dayshort');
-        temp.innerText = data.daily.temperature_2m_min[i] + ' - ' + data.daily.temperature_2m_max[i];
+
+        if ( unit == 'C'){
+            temp.innerText = data.daily.temperature_2m_min[i] + ' - ' + data.daily.temperature_2m_max[i];
+        } else if ( unit == 'F'){
+            temp.innerText = ((data.daily.temperature_2m_min[i] * 9/5) + 32).toFixed(1) + ' - ' + ((data.daily.temperature_2m_max[i] * 9/5) + 32).toFixed(1);
+
+        }
+
+        
 
         //let's add everything
         newCell.appendChild(dateTxt);
@@ -93,6 +116,7 @@ function changeUnit(newUnit){
         document.getElementById('temp').innerHTML = data.current.temperature_2m;
         document.getElementById('F').classList.add('unotsel');
         document.getElementById('C').classList.remove('unotsel');
+        localStorage.setItem('tunit', 'C');
         unit = 'C';
    }
    if (newUnit == 'F'){
@@ -100,6 +124,7 @@ function changeUnit(newUnit){
         document.getElementById('temp').innerHTML = fCalc.toFixed(1);
         document.getElementById('C').classList.add('unotsel');
         document.getElementById('F').classList.remove('unotsel');
+        localStorage.setItem('tunit', 'F');
         unit = 'F';
    }
 
