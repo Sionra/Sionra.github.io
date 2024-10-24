@@ -41,7 +41,7 @@ async function fetchWeather(){
     document.getElementById("hum").innerHTML = (data.current.relative_humidity_2m)  
     document.getElementById("windspeed").innerHTML = (data.current.wind_speed_10m)
     document.getElementById("Date").innerHTML = date.toLocaleString('en-US', {weekday: 'long'}) + " " + date.getDate() + " " + date.toLocaleString('en-US', {month: 'long'});
-    setSeason(date);
+    //setSeason(date);
     forecast(data);
 }
 
@@ -150,175 +150,204 @@ function setSeason(date){
     }
 }
 
+// p for picture | t for text
 function translateWeather(number, code){
     switch (number) {
         case 0:
             if (code === 'p'){
-                return 'imgs/weather-icons/sun.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/clear-day.svg'
+                //return 'imgs/weather-icons/sun.png'
             }
             return("Clear Sky")
             break;
         case 1:
             if (code === 'p'){
-                return 'imgs/weather-icons/overcast.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/cloudy.svg'
+                //return 'imgs/weather-icons/overcast.png'
             }
             return("Mainly Clear")
             break;
         case 2:
             if (code === 'p'){
-                return 'imgs/weather-icons/overcast.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/cloudy.svg'
+                //return 'imgs/weather-icons/overcast.png'
             }
             return("Partly cloudy")
             break;
         case 3:
             if (code === 'p'){
-                return 'imgs/weather-icons/overcast.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/cloudy.svg'
+                //return 'imgs/weather-icons/overcast.png'
             }
             return("Partly cloudy")
             break;
         case 45:
             if (code === 'p'){
-                return 'imgs/weather-icons/fog.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/fog.svg'
+                //return 'imgs/weather-icons/fog.png'
             }
             return("Fog")
             break;
         case 48:
             if (code === 'p'){
-                return 'imgs/weather-icons/fog.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/fog.svg'
+                //return 'imgs/weather-icons/fog.png'
             }
             return("rime fog")
             break;
         case 51:
             if (code === 'p'){
-                return 'imgs/weather-icons/drizzle.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-1-day.svg'
+                //return 'imgs/weather-icons/drizzle.png'
             }
             return("Drizzle Light")
             break;
         case 53:
             if (code === 'p'){
-                return 'imgs/weather-icons/drizzle.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-2-day.svg'
+                //return 'imgs/weather-icons/drizzle.png'
             }
             return("Drizzle Moderate")
             break;
         case 55:
             if (code === 'p'){
-                return 'imgs/weather-icons/drizzle.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-3-day.svg'
+                //return 'imgs/weather-icons/drizzle.png'
             }
             return("Drizzle Dense")
             break;
         case 56:
             if (code === 'p'){
-                return 'imgs/weather-icons/freezing-rain.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rain-and-snow-mix.svg'
+                //return 'imgs/weather-icons/freezing-rain.png'
             }
-            return("Freezing Drizzle Light")
+            return("Freezing Drizzle")
             break;
         case 57:
             if (code === 'p'){
-                return 'imgs/weather-icons/freezing-rain.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rain-and-snow-mix.svg'
+                //return 'imgs/weather-icons/freezing-rain.png'
             }
-            return("Freezing Drizzle Dense")
+            return("Freezing Drizzle")
             break;
         case 61:
             if (code === 'p'){
-                return 'imgs/weather-icons/rain.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-1.svg'
+                //return 'imgs/weather-icons/rain.png'
             }
             return("Rain Slight")
             break;
         case 63:
             if (code === 'p'){
-                return 'imgs/weather-icons/rain.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-2.svg'
+                //return 'imgs/weather-icons/rain.png'
             }
             return("Rain Moderate")
             break;
         case 65:
             if (code === 'p'){
-                return 'imgs/weather-icons/rain.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-3.svg'
+                //return 'imgs/weather-icons/rain.png'
             }
             return("Rain Heavy")
             break;
         case 66:
             if (code === 'p'){
-                return 'imgs/weather-icons/freezing-rain.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rain-and-snow-mix.svg'
+                //return 'imgs/weather-icons/freezing-rain.png'
             }
-            return("Freezing Rain Light")
+            return("Freezing Rain")
             break;
         case 67:
             if (code === 'p'){
-                return 'imgs/weather-icons/freezing-rain.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rain-and-snow-mix.svg'
+                //return 'imgs/weather-icons/freezing-rain.png'
             }
-            return("Freezing Rain Heavy")
+            return("Freezing Rain")
             break;
         case 71:
             if (code === 'p'){
-                return 'imgs/weather-icons/snow.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snowy-1.svg'
+                //return 'imgs/weather-icons/snow.png'
             }
-            return("Snow Fall Slight")
+            return("Snow Fall")
             break;
         case 73:
             if (code === 'p'){
-                return 'imgs/weather-icons/snow.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snowy-2.svg'
+                //return 'imgs/weather-icons/snow.png'
             }
-            return("Snow Fall Moderate")
+            return("Snow Fall")
             break;
         case 75:
             if (code === 'p'){
-                return 'imgs/weather-icons/snow.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snowy-3.svg'
+                //return 'imgs/weather-icons/snow.png'
             }
-            return("Snow Fall heavy")
+            return("Snow Fall")
             break;
         case 77:
             if (code === 'p'){
-                return 'imgs/weather-icons/snow.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snow-and-sleet-mix.svg'
+                //return 'imgs/weather-icons/snow.png'
             }
             return("Snow Grains")
             break;
         case 80:
             if (code === 'p'){
-                return 'imgs/weather-icons/rain-shower.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-1.svg'
+                //return 'imgs/weather-icons/rain-shower.png'
             }
-            return("Rain Shower Light")
+            return("Rain Shower")
             break;
         case 81:
             if (code === 'p'){
-                return 'imgs/weather-icons/rain-shower.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-2.svg'
+                //return 'imgs/weather-icons/rain-shower.png'
             }
-            return("Rain Shower Medium")
+            return("Rain Shower")
             break;
         case 82:
             if (code === 'p'){
-                return 'imgs/weather-icons/rain-shower.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/rainy-3.svg'
+                //return 'imgs/weather-icons/rain-shower.png'
             }
-            return("Rain Shower Heavy")
+            return("Rain Shower")
             break;
         case 85:
             if (code === 'p'){
-                return 'imgs/weather-icons/snow.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snowy-2.svg'
+                //return 'imgs/weather-icons/snow.png'
             }
-            return("Snow Shower Slight")
+            return("Snow Shower")
             break;
         case 86:
             if (code === 'p'){
-                return 'imgs/weather-icons/snow.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/snowy-3.svg'
+                //return 'imgs/weather-icons/snow.png'
             }
-            return("Snow Shower Heavy")
+            return("Snow Shower")
             break;
         case 95:
             if (code === 'p'){
-                return 'imgs/weather-icons/thunderstorm.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/scattered-thunderstorms.svg'
+                //return 'imgs/weather-icons/thunderstorm.png'
             }
-            return("ThunderStorm Slight or moderate")
+            return("ThunderStorm")
             break;
         case 96:
             if (code === 'p'){
-                return 'imgs/weather-icons/thunderstorm.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/scattered-thunderstorms.svg'
+                //return 'imgs/weather-icons/thunderstorm.png'
             }
-            return("ThunderStorm with slight hail")
+            return("ThunderStorm")
             break;
         case 99:
             if (code === 'p'){
-                return 'imgs/weather-icons/thunderstorm.png'
+                return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/master/animated/scattered-thunderstorms.svg'
+                //return 'imgs/weather-icons/thunderstorm.png'
             }
-            return("ThunderStorm with heavily hail")
+            return("ThunderStorm")
             break;
     }
 }
