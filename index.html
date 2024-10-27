@@ -1,42 +1,487 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Weather"/>
-    <meta property="og:description" content="You can see your local weather for the weeks"/>
-    <meta property="og:image" content="imgs/weather-icons/summer.png"/>
-    <title>Weather</title>
-    <link rel="stylesheet" href="main.css">
-</head>
-<script src="main.js"></script>
-<body>
-    <div class="middle">
-        <table id="weatherTable">
-            <tr>
-                <td>
-                    <img id="picture" class="weatherIcon" src=""></img>
-                </td>
-                <td id=" tdtemp">
-                    <p><span id="temp">Undefined</span></p>
-                </td>
-                <td>
-                    <p> <span id="C" onclick="changeUnit('C')">°C</span> | <span id='F' onclick="changeUnit('F')">°F</span></p>
-                </td>
-                <td id="linfo">
-                    <p class="ltextinfo">Precipitation : <span id="precipitation">N/A</span>%</p>
-                    <p class="ltextinfo">Humidity : <span id="hum">N/A</span>%</p>
-                    <p class="ltextinfo">Wind : <span id="windspeed">N/A</span> Km/h</p>
-                </td>
-                <td>
-                    <p id="Date">Undefined</p>
-                    <img id="season">
-                </td>
-            </tr>
-        </table>
-    </div>
+    <head>
+        <meta charset="utf-8">
+        <title>Portfolio - Raphaël Garon-Sinopoli</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
 
-    
-    <!--<p><span id="weather">Undefined</span></p>-->
-</body>
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar" data-offset="51">
+        <!-- Nav Bar Start -->
+        <div class="navbar navbar-expand-lg bg-light navbar-light">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand">RG</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="#home" class="nav-item nav-link active">Accueil</a>
+                        <a href="#about" class="nav-item nav-link">A propos</a>
+                        <a href="#experience" class="nav-item nav-link">Expériences</a>
+                        <a href="#education" class="nav-item nav-link">Formation</a>
+                        <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
+                        <a href="#contact" class="nav-item nav-link">Contact</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Nav Bar End -->
+
+
+        <!-- Hero Start -->
+        <div class="hero" id="home">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <p>Bonjour, je suis</p>
+                                <h1>Raphaël <br>Garon-Sinopoli</h1>
+                                <h2></h2>
+                                <div class="typed-text">Développeur Backend, Développeur Java/Angular, Développeur Fullstack</div>
+                            </div>
+                            <div class="hero-btn">
+                                <a class="btn" href="#portfolio">Voir mon portfolio</a>
+                                <a class="btn" href="#contact">Me contacter</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 d-none d-md-block">
+                        <div class="hero-image">
+                            <img src="img/hero-portrait.png" alt="Hero Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+
+
+        <!-- About Start -->
+        <div class="about wow fadeInUp" data-wow-delay="0.1s" id="about">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="about-img">
+                            <img src="img/about-resized.png" alt="Image">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content">
+                            <div class="section-header text-left">
+                                <p>Qui suis-je ?</p>
+                                <h2>Mon parcours</h2>
+                            </div>
+                            <div class="about-text">
+                                <p>
+                                    Actuellement en CDA Java chez Diginamic Montpellier (RNCP 6 , Bac+3/4),  je recherche une 
+                                    <b>alternance Développeur Backend ou Fullstack</b>, et suis immédiatement disponible. Voici les rythmes possibles : 
+                                 </p>
+                                 <ul>
+                                    <li>5 mois de formation, puis 14 mois en entreprise à plein temps</li>
+                                    <li>2 mois de formation, puis rythme 7 semaines entreprise / 2 semaine formation</li>
+                                 </ul>
+                                 <p>
+                                    Après un DUT en Informatique, j'ai d'abord été Consultant SAP chez Ipanova, où j'ai développé des tableaux de bord et outils de suivi pour analyser les serveurs Airbus. 
+                                    Ensuite Développeur 3DX chez FMS-EA, j’ai optimisé des processus avec des scripts et amélioré la documentation, toujours pour Airbus.
+                                 </p>
+                                 <p>
+                                    En tant qu'Ingénieur Support Logiciel chez Ivalua, j'ai développé des compétences en <b>communication</b> et <b>écoute active</b> pour répondre 
+                                    aux besoins des clients et maintenir une collaboration fluide avec les équipes internes.
+                                 </p>
+                                <p>
+                                    Confronté aux limites d’opportunités en tant que développeur avec un Bac+2, j’ai décidé de reprendre mes études pour 
+                                    monter en compétences en développement web et me spécialiser en <b>Java/Angular/Spring</b>. Motivé, polyvalent et fiable, je saurai être un atout dans ma future équipe. 
+                                </p>
+                            </div>
+                            <div class="skills">
+                                <div class="skill-name">
+                                    <p><br/>Back-end</p><p>5 ans</p>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="skill-name">
+                                    <p>Front-end</p><p>6 mois</p>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="skill-name">
+                                    <p>Anglais</p><p>B2</p>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+        <!-- Experience Start -->
+        <div class="experience" id="experience">
+            <div class="container">
+                <header class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>Mon CV</p>
+                    <h2>Expériences professionnelles</h2>
+                </header>
+                <div class="timeline">
+                    <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
+                        <div class="timeline-text">
+                            <div class="timeline-date">juillet 2023 - mars 2024</div>
+                            <h2>Ingénieur Support Logiciel</h2>
+                            <h4>Ivalua, Montpellier</h4>
+                            <ul>
+                                <li>Gérer des tickets (bugs, évolutions) et rediriger vers les services concernés</li>
+                                <li>Reproduire et résoudre des bugs (corriger du code <b>C#</b>, configuration, <b>SQL</b>)</li>
+                                <li> Communiquer avec les clients via tickets et réunions hebdomadaires</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
+                        <div class="timeline-text">
+                            <div class="timeline-date">juillet 2021 - juillet 2023</div>
+                            <h2>Développeur 3DX</h2>
+                            <h4>FMS-EA, Toulouse</h4>
+                            <ul>
+                                <li>Ajout de fonctionnalités sur l'application 3DX pour Airbus</li>
+                                <li>Migration de données, développement de User Stories et fonctionnalités en EKL, scripts d'attribution des licences</li>
+                                <li>Tests fonctionnels, rédaction de documentation technique, Regex</li>
+                                <li>Méthode Agile SAFe</li>
+                                <li><b>Environnement : Jira, Confluence, EKL, Google App Script, 3DX, Joplin, Suite Google, Git, Git Lab</b></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
+                        <div class="timeline-text">
+                            <div class="timeline-date">2012 - 2022</div>
+                            <h2>Consultant technique SAP</h2>
+                            <h4>Ipanova, Toulouse</h4>
+                            <ul>
+                                <li>Création de KPI, tableaux de bord, et application UI5</li>
+                                <li>Connexion <b>API</b> avec SAP, lecture de <b>JSON</b>, export Excel</li>
+                                <li>Documentation sur <b>Confluence</b></li>
+                                <li><b>Environnement : SAP, SAP UI5, ABAP, Postman</b></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Job Experience End -->
+        
+                 <!-- Education Start -->
+                 <div class="experience" id="education">
+                    <div class="container">
+                        <header class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                            <p>Mon CV</p>
+                            <h2>Formation</h2>
+                        </header>
+                        <div class="timeline">
+                            <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
+                                <div class="timeline-text">
+                                    <div class="timeline-date">septembre 2024- avril 2026</div>
+                                    <h2>Concepteur Développeur d'Application Java Fullstack | RNCP 6 (bac+3/4)</h2>
+                                    <h4>Diginamic, Montpellier</h4>
+                                    <ul>
+                                        <li>Concevoir et développer une interface utilisateur avec Java, Spring, Typescript, Angular</li>
+                                        <li>Développement de la persistance des données, tests unitaires</li>
+                                        <li>Concevoir et développer une app Java multicouche répartie en mode agile</li>
+                                        <li><b>Environnement : Bootstrap, Angular, Javascript, Java, Spring, NodeJS, Git, CICD, Maven, ANSSI/OWASP, JPA, JDBC, UML, Docker, Github...</b></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
+                                <div class="timeline-text">
+                                    <div class="timeline-date">juillet 2023</div>
+                                    <h2>Certifications Ivalua : L1 | L2 Config | Badge PRM</h2>
+                                    <h4>Ivalua</h4>
+                                </div>
+                            </div>
+                            <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
+                                <div class="timeline-text">
+                                    <div class="timeline-date">avril 2022</div>
+                                    <h2>Certification Agile : Certified Safe 5 Practicioner</h2>
+                                    <h4>Scaled Agile</h4>
+                                </div>
+                            </div>
+                            <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
+                                <div class="timeline-text">
+                                    <div class="timeline-date">2016 - 2018</div>
+                                    <h2>DUT Informatique</h2>
+                                    <h4>IUT de Blagnac</h4>
+                                    <li><b>Java, Python, PHP/Symfony, SQL et C </b></li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Education End -->
+
+
+        <!-- Portfolio Start  --->
+        <div class="portfolio" id="portfolio">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <p>Portfolio</p>
+                    <h2>Mon Portfolio</h2>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <ul id="portfolio-filter">
+                            <li data-filter="*" class="filter-active">All</li>
+                            <li data-filter=".filter-1">Projets web</li>
+                            <li data-filter=".filter-2">Algorithmie</li>
+                            <!-- <li data-filter=".filter-3">Maquettes Figma</li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="row portfolio-container">
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp" data-wow-delay="0.0s">
+                        <div class="portfolio-img">
+                            <img src="img/meteo.png" alt="Image" id="meteo-img" >
+                            <div class="portfolio-content">
+                                <div class="portfolio-text-container">
+                                    <h4 class="portfolio-title">Météo</h4>
+                                    <p>
+                                        Une app web qui affiche la météo locale de la semaine en utilisant l'API d'open-meteo.com pour 
+                                        récupérer les données météo, des fichiers JSON pour les manipuler, et des icônes SVG. 
+                                        L'interface est conçue avec du vanilla JS et CSS. 
+                                    </p>
+                                    <ul class="portfolio-btn">
+                                        <a href="https://sionra.github.io/weatherApp/index.html" target="_blank"><li class="btn">Démo</li></a>
+                                    </ul>
+                                    <ul class="portfolio-icons">
+                                        <li><i class="fa-brands fa-html5"></i></li>
+                                        <li><i class="fa-brands fa-css3-alt"></i></li>
+                                        <li><i class="fa-brands fa-js"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.0s">
+                        <div class="portfolio-img">
+                            <img src="img/bataille-navale.png" alt="Image">
+                            <div class="portfolio-content">
+                                <div class="portfolio-text-container">
+                                    <h4 class="portfolio-title">Bataille navale</h4>
+                                    <p>
+                                        Un jeu de bataille navale en C# qui s'affiche dans la console.
+                                        Les joueurs placent et attaquent des navires sur une grille. 
+                                        Gestion des interactions utilisateur, validation des tirs, affichage du statut des bateaux.
+                                    </p>
+                                    <ul class="portfolio-btn">
+                                        <a href="https://github.com/Sionra/CS-Naval-War"  target="_blank"><li class="btn">Code</li></a>
+                                    </ul>
+                                    <ul class="portfolio-icons">
+                                        <li class="icon-text">C#</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Testimonial Start -->
+        <div class="testimonial wow fadeInUp" data-wow-delay="0.1s" id="review">
+            <div class="container">
+                <div class="testimonial-icon">
+                    <i class="fa fa-quote-left"></i>
+                </div>
+                <div class="owl-carousel testimonials-carousel">
+                    <div class="testimonial-item">
+                        <div class="testimonial-img">
+                            <img src="img/reco-1.jpeg" alt="Image">
+                        </div>
+                        <div class="testimonial-text">
+                            <p>
+                                Raphaël est un vrai couteau suisse. 
+                                Il est polyvalent, créatif, à l'écoute, toujours prêt à aider ses collègues. 
+                                Il est fiable et a le souci de bien faire. 
+                                C'était vraiment un plaisir de travailler avec lui, pour moi ainsi que pour toute l'équipe 
+                            </p>
+                            <h3>Valerie Serin</h3>
+                            <h4>Consultante fonctionnelle chez FMS-EA</h4>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-img">
+                            <img src="img/reco-2.jpeg" alt="Image">
+                        </div>
+                        <div class="testimonial-text">
+                            <p>
+                                Derrière une apparence initialement réservée, Raphaël se révèle vite comme une personne chaleureuse 
+                                et très drôle une fois à l’aise, et sait créer un climat de confiance dans l’équipe. <br>
+Avec 3 ans d'expérience en Java, il a non seulement des bases solides, mais il se distingue aussi par sa passion pour 
+la programmation et son altruisme. Il fait toujours les TP et tous les exercices facultatifs à l’avance pour pouvoir aider les étudiants 
+en difficulté, et s’est révélé d‘une grande patience et bienveillance, et très pédagogue. <br>
+Alors, foncez ! Ce sera un atout inestimable dans n’importe quelle équipe. ⭐️                             </p>
+                            <h3>Coralie Ruiz</h3>
+                            <h4>Etudiante CDA Java chez Diginamic</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+
+        <!-- Contact Start -->  
+        <div class="contact wow fadeInUp" data-wow-delay="0.1s" id="contact">
+            <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                <p>contact</p>
+                <h2>Me contacter</h2>
+            </div>
+            <div class="container">
+                <div class="contact-form">
+                    <div id="success"></div>
+                    <form name="sentMessage" id="contactForm" novalidate="novalidate" action="https://formspree.io/f/movqjdlk" method="POST">
+                        <div class="control-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="control-group">
+                            <textarea class="form-control" id="message" name="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                            <p class="help-block"></p>
+                        </div>
+                        <div>
+                            <button class="btn" type="submit" id="sendMessageButton">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact End -->
+
+
+        <!-- Footer Start -->
+        <div class="footer wow fadeIn" data-wow-delay="0.3s">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="footer-info">
+                        <h2>Raphaël Garon-Sinopoli</h2>
+                        <h3>Montpellier, France</h3>
+                        <div class="footer-menu">
+                            <a href="mailto:raphael.garon@gmail.com" id="email-footer">raphael.garon@gmail.com</a>
+                        </div>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/in/rapha%C3%ABl-garon-sinopoli/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Sionra" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container copyright">
+                    <p>&copy; <a href="#">Portfolio de Raphaël Garon-Sinopoli</a>, All Right Reserved | 
+					
+					<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+        
+        
+        <!-- Back to top button -->
+        <a href="#" class="btn back-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        
+        <!-- Pre Loader -->
+        <div id="loader" class="show">
+            <div class="loader"></div>
+        </div>
+
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/typed/typed.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/isotope/isotope.pkgd.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
+        
+        <!-- Contact Javascript File -->
+        <script src="mail/jqBootstrapValidation.min.js"></script>
+        <script src="mail/contact.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+
+        <!-- Read the Formbutton docs at formspree.io/formbutton/docs. See more examples at codepen.io/formspree -->
+        <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Empêche la soumission par défaut pour gérer avec JavaScript
+                var form = this;
+
+                if (!this.checkValidity()) {
+                    event.preventDefault(); // Empêche la soumission du formulaire
+                    document.getElementById('success').innerHTML = "<div class='alert alert-danger'>Veuillez remplir tous les champs requis.</div>";
+                    return;
+                }
+        
+                // Soumission du formulaire avec Fetch API
+                fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        document.getElementById('success').innerHTML = "<div class='alert alert-success'>Message envoyé avec succès !</div>";
+                        form.reset(); // Réinitialiser le formulaire
+                    } else {
+                        document.getElementById('success').innerHTML = "<div class='alert alert-danger'>Erreur lors de l'envoi du message.</div>";
+                    }
+                }).catch(error => {
+                    document.getElementById('success').innerHTML = "<div class='alert alert-danger'>Erreur lors de l'envoi du message.</div>";
+                });
+            });
+        </script>
+    </body>
 </html>

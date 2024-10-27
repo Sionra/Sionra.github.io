@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Weather"/>
+    <meta property="og:description" content="You can see your local weather for the weeks"/>
+    <meta property="og:image" content="imgs/weather-icons/summer.png"/>
+    <title>Weather</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<script src="main.js"></script>
+<body>
+    <div class="middle">
+        <table id="weatherTable">
+            <tr>
+                <td>
+                    <img id="picture" class="weatherIcon" src=""></img>
+                </td>
+                <td id=" tdtemp">
+                    <p><span id="temp">Undefined</span></p>
+                </td>
+                <td>
+                    <p> <span id="C" onclick="changeUnit('C')">°C</span> | <span id='F' onclick="changeUnit('F')">°F</span></p>
+                </td>
+                <td id="linfo">
+                    <p class="ltextinfo">Precipitation : <span id="precipitation">N/A</span>%</p>
+                    <p class="ltextinfo">Humidity : <span id="hum">N/A</span>%</p>
+                    <p class="ltextinfo">Wind : <span id="windspeed">N/A</span> Km/h</p>
+                </td>
+                <td>
+                    <p id="Date">Undefined</p>
+                    <img id="season">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    
+    <!--<p><span id="weather">Undefined</span></p>-->
+</body>
+</html>
