@@ -1,5 +1,5 @@
 body {
-    margin: 70px 0 0 0;
+    margin: 0;
 }
 
 html {
@@ -21,7 +21,9 @@ header {
 
 footer {
     background-color: #f8f4f1;
-    padding: 30px;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
 
     p {
         color: #a34a21;
@@ -56,18 +58,15 @@ footer {
 
     .image-text {
         color: #f8f4f1;
-        display: block;
-        flex-direction: column;
-        align-items: center;
         font-size: 35px;
-        text-align: center;
         left: 50%;
         opacity: 0;
         position: absolute;
+        text-align: center;
         top: 50%;
         transition: .3s ease-in-out;
         transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%)
     }
 }
 
@@ -88,7 +87,6 @@ footer {
     text-align: center;
     color: #f8f4f1;
     cursor: pointer;
-    justify-content: center;
 }
 
 .about-container {
@@ -96,9 +94,25 @@ footer {
     padding: 0 100px 0 100px;
 }
 
+.about-font-size{
+    font-size: 32px;
+    padding-left: 30px;
+}
+
 .about-illustration {
     margin: 70px;
     max-height: 1000px;
+}
+
+.padding-fixer {
+    padding: 70px 0 70px 0;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
 }
 
 .pictures {
@@ -120,9 +134,9 @@ footer {
 
 .form{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     margin: 60px;
+    text-align: center;
 }
 
 .form-element{
@@ -168,9 +182,4 @@ footer {
             margin: 10px;
         }
     }
-}
-
-.about-font-size{
-    font-size: 32px;
-    padding-left: 30px;
 }
