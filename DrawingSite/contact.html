@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <title>Contact</title>
+</head>
+<header>
+    <button class="round-button" id="openDialog">
+        <img width="50px" src="assets/icons/menu.png"/>
+    </button>
+
+    <dialog id="dialog">
+        <div>
+            <button id="closeDialog" aria-label="close">X</button>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">A propos</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </dialog>
+</header>
+<body>
+<div class="form">
+    <h1>Contact</h1>
+    <form name="sentMessage" id="contactForm" novalidate="novalidate" action="https://formspree.io/f/movqjdlk"
+          method="POST">
+        <div>
+            <input type="text" class="form-element" id="name" name="name" placeholder="Your Name" required="required"
+                   data-validation-required-message="Please enter your name"/>
+            <p class="help-block"></p>
+        </div>
+        <div>
+            <input type="email" class="form-element" id="email" name="email" placeholder="Your Email"
+                   required="required" data-validation-required-message="Please enter your email"/>
+            <p></p>
+        </div>
+        <div >
+            <input type="text" class="form-element" id="subject" name="subject" placeholder="Subject"
+                   required="required" data-validation-required-message="Please enter a subject"/>
+            <p></p>
+        </div>
+        <div >
+            <textarea id="message" class="form-element textarea" name="message" placeholder="Message" required="required"
+                      data-validation-required-message="Please enter your message"></textarea>
+            <p></p>
+        </div>
+        <div>
+            <button type="submit" class="about-button" id="sendMessageButton">Send Message</button>
+        </div>
+    </form>
+</div>
+</body>
+<footer>
+    <p>
+        ©2024 Sionra Cadish
+    </p>
+</footer>
+
+<script>
+    const closeDialog = document.getElementById("closeDialog");
+    const dialog = document.getElementById("dialog");
+    const openDialog = document.getElementById("openDialog");
+
+    closeDialog.addEventListener("click", () => {
+        dialog.close();
+    });
+
+    openDialog.addEventListener("click", () => {
+        dialog.showModal();
+    });
+</script>
+
+</html>
